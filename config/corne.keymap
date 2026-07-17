@@ -129,7 +129,7 @@
         nav_layer {
             display-name = "NAV";
             bindings = <
-                &none   &none       &none       &none        &none        &none            &kp K_REDO   &kp K_PASTE  &kp K_COPY   &kp K_CUT    &kp K_UNDO   &none
+                &none   &none       &none       &none        &none        &none            &kp LG(LS(Z))   &kp LG(V)  &kp LG(C)   &kp LG(X)    &kp LG(Z)   &none
                 &none   &kp LGUI    &kp LALT    &kp LCTRL    &kp LSHFT    &none            &kp CAPS     &kp LEFT     &kp DOWN     &kp UP       &kp RIGHT    &none
                 &none   &none       &none       &none        &none        &none            &kp INS      &kp HOME     &kp PG_DN    &kp PG_UP    &kp END  &none
                                         &none        &none        &none            &kp RET      &kp BSPC     &kp DEL
