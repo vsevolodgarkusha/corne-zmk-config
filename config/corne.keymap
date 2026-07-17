@@ -137,13 +137,13 @@
         };
 
         /*
-         * MOUSE LAYER (Mouse Emulation)
+         * CUSTOM LAYER
          * ┌─────┬─────┬─────┬─────┬─────┐     ┌─────┬─────┬─────┬─────┬─────┐
          * │     │     │     │     │     │     │ Redo│Paste│ Copy│ Cut │ Undo│
          * ├─────┼─────┼─────┼─────┼─────┤     ├─────┼─────┼─────┼─────┼─────┤
-         * │ GUI │ ALT │CTRL │SHFT │     │     │     │ Ms ←│ Ms ↓│ Ms ↑│ Ms →│
+         * │ GUI │ ALT │CTRL │SHFT │     │     │     │  '  │  "  │     │     │
          * ├─────┼─────┼─────┼─────┼─────┤     ├─────┼─────┼─────┼─────┼─────┤
-         * │     │     │     │     │     │     │     │ Wh ←│ Wh ↓│ Wh ↑│ Wh →│
+         * │     │     │     │     │     │     │     │     │     │     │     │
          * └─────┴─────┴─────┴──┬──┴──┬──┴─┐ ┌─┴──┬──┴──┬──┴─────┴─────┴─────┘
          *                      │     │     │ │ Btn1│ Btn3│ Btn2│
          *                      └─────┴─────┘ └─────┴─────┴─────┘
@@ -151,10 +151,10 @@
         mouse_layer {
             display-name = "MOUSE";
             bindings = <
-                &none   &none       &none       &none        &none        &none            &kp K_REDO     &kp K_PASTE     &kp K_COPY      &kp K_CUT       &kp K_UNDO    &none
-                &none   &kp LGUI    &kp LALT    &kp LCTRL    &kp LSHFT    &none            &none          &none           &none           &none           &none &none
-                &none   &none       &none       &none        &none        &none            &none          &none           &none           &none           &none &none
-                                        &none        &none        &none            &none          &none           &none
+                &none  &none  &none  &none  &none  &none  &kp K_REDO  &kp K_PASTE  &kp K_COPY  &kp K_CUT  &kp K_UNDO  &none
+                &none  &kp LGUI  &kp LALT  &kp LCTRL  &kp LSHFT  &none  &none  &kp SQT  &kp DQT  &none  &none  &none
+                &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none
+                &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none
             >;
         };
 
