@@ -15,14 +15,14 @@
  * LAYERS:
  * 0. BASE   - QWERTY alphas with home row mods
  * 1. NAV    - Navigation, editing (arrows, home/end, etc.)
- * 2. MOUSE  - Mouse emulation
+ * 2. CUSTOM - Custom emulation
  * 3. MEDIA  - Media controls, RGB, Bluetooth
  * 4. NUM    - Numbers and symbols (numpad-style)
  * 5. SYM    - Shifted symbols
  * 6. FUN    - Function keys F1-F12
  *
  * THUMB KEY ASSIGNMENTS:
- * Left:  TAB (Media) | SPACE (Nav) | ESC (Mouse)
+ * Left:  TAB (Media) | SPACE (Nav) | ESC (Custom)
  * Right: ENTER (Sym) | BACKSPACE (Num) | DELETE (Fun)
  *
  * HOME ROW MODS (tap for letter, hold for modifier):
@@ -36,12 +36,11 @@
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/outputs.h>
-#include <dt-bindings/zmk/mouse.h>
 
 // Layer definitions
 #define BASE   0
 #define NAV    1
-#define MOUSE  2
+#define CUSTOM 2
 #define MEDIA  3
 #define NUM    4
 #define SYM    5
@@ -100,7 +99,7 @@
          * │  Z  │  X  │  C  │  V  │  B  │     │  N  │  M  │  ,  │  .  │  /  │
          * └─────┴─────┴─────┴──┬──┴──┬──┴─┐ ┌─┴──┬──┴──┬──┴─────┴─────┴─────┘
          *                │ TAB │ SPC │ ESC │ │ ENT │ BSPC│ DEL │
-         *                │Media│ Nav │Mouse│ │ Sym │ Num │ Fun │
+         *                │Media│ Nav │Cstm │ │ Sym │ Num │ Fun │
          *                │  3  │  1  │  2  │ │  5  │  4  │  6  │
          *                └─────┴─────┴─────┘ └─────┴─────┴─────┘
          */
@@ -110,7 +109,7 @@
                 &none   &kp Q           &kp W           &kp E            &kp R            &kp T              &kp Y        &kp U            &kp I            &kp O           &kp P   &none
                 &none   &hml LGUI A     &hml LALT S     &hml LCTRL D     &hml LSHFT F     &kp G              &kp H        &hmr RSHFT J     &hmr RCTRL K     &hmr RALT L     &hmr RGUI SEMI  &none
                 &none   &kp Z           &kp X           &kp C            &kp V            &kp B              &kp N        &kp M            &kp COMMA        &kp DOT         &kp SLASH   &none
-                                                &lt MEDIA TAB    &lt NAV SPACE    &lt MOUSE ESC      &lt SYM RET  &lt NUM BSPC     &lt FUN DEL
+                                                &lt MEDIA TAB    &lt NAV SPACE    &lt CUSTOM ESC      &lt SYM RET  &lt NUM BSPC     &lt FUN DEL
             >;
         };
 
@@ -148,13 +147,13 @@
          *                      │     │     │ │ Btn1│ Btn3│ Btn2│
          *                      └─────┴─────┘ └─────┴─────┴─────┘
          */
-        mouse_layer {
-            display-name = "MOUSE";
+        custom_layer {
+            display-name = "CUSTOM";
             bindings = <
                 &none  &none  &none  &none  &none  &none  &kp K_REDO  &kp K_PASTE  &kp K_COPY  &kp K_CUT  &kp K_UNDO  &none
                 &none  &kp LGUI  &kp LALT  &kp LCTRL  &kp LSHFT  &none  &none  &kp SQT  &kp DQT  &none  &none  &none
                 &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none
-                &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none
+                &none  &none  &none  &none  &none  &none
             >;
         };
 
