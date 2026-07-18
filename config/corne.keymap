@@ -13,16 +13,16 @@
  * - Layers accessed by holding opposite hand thumb key
  *
  * LAYERS:
- * 0. BASE   - QWERTY alphas with home row mods
- * 1. NAV    - Navigation, editing (arrows, home/end, etc.)
- * 2. CUSTOM - Custom emulation
- * 3. MEDIA  - Media controls, RGB, Bluetooth
- * 4. NUM    - Numbers and symbols (numpad-style)
- * 5. SYM    - Shifted symbols
- * 6. FUN    - Function keys F1-F12
+ * 0. BASE  - QWERTY alphas with home row mods
+ * 1. NAV   - Navigation, editing (arrows, home/end, etc.)
+ * 2. RUS   - Rus emulation
+ * 3. MEDIA - Media controls, RGB, Bluetooth
+ * 4. NUM   - Numbers and symbols
+ * 5. SYM   - Shifted symbols
+ * 6. FUN   - Function keys F1-F12
  *
  * THUMB KEY ASSIGNMENTS:
- * Left:  TAB (Media) | SPACE (Nav) | ESC (Custom)
+ * Left:  TAB (Media) | SPACE (Nav) | ESC (Rus)
  * Right: ENTER (Sym) | BACKSPACE (Num) | DELETE (Fun)
  *
  * HOME ROW MODS (tap for letter, hold for modifier):
@@ -38,13 +38,13 @@
 #include <dt-bindings/zmk/outputs.h>
 
 // Layer definitions
-#define BASE   0
-#define NAV    1
-#define CUSTOM 2
-#define MEDIA  3
-#define NUM    4
-#define SYM    5
-#define FUN    6
+#define BASE    0
+#define NAV     1
+#define RUS     2
+#define MEDIA   3
+#define NUM     4
+#define SYM     5
+#define FUN     6
 
 // Behavior configuration
 &mt {
@@ -109,7 +109,7 @@
                 &none       &kp Q           &kp W           &kp E           &kp R           &kp T       &kp Y       &kp U           &kp I           &kp O           &kp P           &none
                 &none       &hml LGUI A     &hml LALT S     &hml LCTRL D    &hml LSHFT F    &kp G       &kp H       &hmr RSHFT J    &hmr RCTRL K    &hmr RALT L     &hmr RGUI SEMI  &none
                 &none       &kp Z           &kp X           &kp C           &kp V           &kp B       &kp N       &kp M           &kp COMMA       &kp DOT         &kp SLASH       &none
-                                                            &lt MEDIA TAB   &lt NAV SPACE   &lt CUSTOM ESC  &lt SYM RET  &lt NUM BSPC   &lt FUN DEL
+                                                        &lt MEDIA TAB   &lt NAV SPACE   &lt RUS ESC     &lt SYM RET     &lt NUM BSPC    &lt FUN DEL
             >;
         };
 
@@ -124,7 +124,7 @@
          * └─────┴─────┴──┬──┴──┬──┴──┬──┴──┐ ┌──┴──┬──┴──┬──┴──┬──┴─────┴─────┘
          *                │     │ HLD │     | │ ENT │ BSPC│ DEL │
          *                └─────┴─────┴─────┘ └─────┴─────┴─────┘
-         *
+         */
         nav_layer {
             display-name = "NAV";
             bindings = <
@@ -136,23 +136,23 @@
         };
 
         /*
-         * CUSTOM LAYER
+         * RUS LAYER
          * ┌─────┬─────┬─────┬─────┬─────┐       ┌─────┬─────┬─────┬─────┬─────┐
-         * │     │     │     │     │     │       │ Redo│Paste│ Copy│ Cut │ Undo│
+         * │     │     │     │     │     │       │  ~  │  "  │  [  │  ]  │  |  │ 
          * ├─────┼─────┼─────┼─────┼─────┤       ├─────┼─────┼─────┼─────┼─────┤
-         * │ GUI │ ALT │CTRL │SHFT │     │       │     │  '  │  "  │     │     │
+         * │ GUI │ ALT │CTRL │SHFT │     │       │  `  │  '  │  {  │  }  │  \  │
          * ├─────┼─────┼─────┼─────┼─────┤       ├─────┼─────┼─────┼─────┼─────┤
-         * │     │     │     │     │     │       │     │     │     │     │     │
+         * │     │     │     │     │     │       │     │  <  │  >  │     │     │
          * └─────┴─────┴──┬──┴──┬──┴──┬──┴──┐ ┌──┴──┬──┴──┬──┴──┬──┴─────┴─────┘
-         *                │     │     │ HLD │ │ Btn1│ Btn3│ Btn2│
+         *                │     │     │ HLD │ │     │     │     │
          *                └─────┴─────┴─────┘ └─────┴─────┴─────┘
          */
-        custom_layer {
-            display-name = "CUSTOM";
+        rus_layer {
+            display-name = "RUS";
             bindings = <
-                &none       &none       &none       &none       &none       &none       &kp K_REDO  &kp K_PASTE &kp K_COPY  &kp K_CUT   &kp K_UNDO  &none
-                &none       &kp LGUI    &kp LALT    &kp LCTRL   &kp LSHFT   &none       &none       &kp SQT     &kp DQT     &none       &none       &none
-                &none       &none       &none       &none       &none       &none       &none       &none       &none       &none       &none       &none
+                &none       &none       &none       &none       &none       &none       &kp TILDE   &kp DQT     &kp LBKT    &kp RBKT    &kp PIPE    &none
+                &none       &kp LGUI    &kp LALT    &kp LCTRL   &kp LSHFT   &none       &kp GRAVE   &kp SQT     &kp LBRC    &kp RBRC    &kp BSLH    &none
+                &none       &none       &none       &none       &none       &none       &none       &kp LT      &kp RT      &none       &none       &none
                                                     &none       &none       &none       &none       &none       &none
             >;
         };
@@ -181,46 +181,46 @@
         };
 
         /*
-         * NUM LAYER (Numbers & Symbols - Numpad Style)
+         * NUM LAYER (Numbers & Symbols)
          * ┌─────┬─────┬─────┬─────┬─────┐       ┌─────┬─────┬─────┬─────┬─────┐
-         * │  [  │  7  │  8  │  9  │  ]  │       │     │     │     │     │     │
+         * │  !  │  @  │  #  │  $  │  %  │       │     │     │     │     │     │
          * ├─────┼─────┼─────┼─────┼─────┤       ├─────┼─────┼─────┼─────┼─────┤
-         * │  ;  │  4  │  5  │  6  │  =  │       │     │SHFT │CTRL │ ALT │ GUI │
+         * │  1  │  2  │  3  │  4  │  5  │       │     │SHFT │CTRL │ ALT │ GUI │
          * ├─────┼─────┼─────┼─────┼─────┤       ├─────┼─────┼─────┼─────┼─────┤
-         * │  `  │  1  │  2  │  3  │  \  │       │     │     │     │     │     │
+         * │  6  │  7  │  8  │  9  │  0  │       │     │     │     │     │     │
          * └─────┴─────┴──┬──┴──┬──┴──┬──┴──┐ ┌──┴──┬──┴──┬──┴──┬──┴─────┴─────┘
-         *                │  .  │  0  │  -  │ │     │ HLD │     │
+         *                │     │     │     │ │     │ HLD │     │
          *                └─────┴─────┴─────┘ └─────┴─────┴─────┘
          */
         num_layer {
             display-name = "NUM";
             bindings = <
-                &none       &kp LBKT    &kp N7      &kp N8      &kp N9      &kp RBKT        &none       &none       &none       &none       &none       &none
-                &none       &kp SEMI    &kp N4      &kp N5      &kp N6      &kp EQUAL       &none       &kp RSHFT   &kp RCTRL   &kp RALT    &kp RGUI    &none
-                &none       &kp GRAVE   &kp N1      &kp N2      &kp N3      &kp BSLH        &none       &none       &none       &none       &none       &none
-                                                    &kp DOT     &kp N0      &kp MINUS       &none       &none       &none
+                &none       &kp EXCL    &kp AT      &kp HASH    &kp DLLR    &kp PRCNT   &none       &none       &none       &none       &none       &none
+                &none       &kp N1      &kp N2      &kp N3      &kp N4      &kp N5      &none       &kp RSHFT   &kp RCTRL   &kp RALT    &kp RGUI    &none
+                &none       &kp N6      &kp N7      &kp N8      &kp N9      &kp N0      &none       &none       &none       &none       &none       &none
+                                                    &none       &none       &none       &none       &none       &none
             >;
         };
 
         /*
          * SYM LAYER (Shifted Symbols)
          * ┌─────┬─────┬─────┬─────┬─────┐       ┌─────┬─────┬─────┬─────┬─────┐
-         * │  {  │  &  │  *  │  (  │  }  │       │     │     │     │     │     │
+         * │  ^  │  &  │  *  │  (  │  )  │       │     │     │     │     │     │
          * ├─────┼─────┼─────┼─────┼─────┤       ├─────┼─────┼─────┼─────┼─────┤
-         * │  :  │  $  │  %  │  ^  │  +  │       │     │SHFT │CTRL │ ALT │ GUI │
+         * │  :  │  -  │  +  │  {  │  }  │       │     │SHFT │CTRL │ ALT │ GUI │
          * ├─────┼─────┼─────┼─────┼─────┤       ├─────┼─────┼─────┼─────┼─────┤
-         * │  ~  │  !  │  @  │  #  │  |  │       │     │     │     │     │     │
+         * │  ;  │  _  │  =  │  [  │  ]  │       │     │     │     │     │     │
          * └─────┴─────┴──┬──┴──┬──┴──┬──┴──┐ ┌──┴──┬──┴──┬──┴──┬──┴─────┴─────┘
-         *                │  (  │  )  │  _  │ │ HLD │     │     │
+         *                │  `  │  ~  │     │ │ HLD │     │     │
          *                └─────┴─────┴─────┘ └─────┴─────┴─────┘
          */
         sym_layer {
             display-name = "SYM";
             bindings = <
-                &none       &kp LBRC    &kp AMPS    &kp STAR    &kp LPAR    &kp RBRC    &none       &none       &none       &none       &none       &none
-                &none       &kp COLON   &kp DLLR    &kp PRCNT   &kp CARET   &kp PLUS    &none       &kp RSHFT   &kp RCTRL   &kp RALT    &kp RGUI    &none
-                &none       &kp TILDE   &kp EXCL    &kp AT      &kp HASH    &kp PIPE    &none       &none       &none       &none       &none       &none
-                                                    &kp LPAR    &kp RPAR    &kp UNDER   &none       &none       &none
+                &none       &kp CARET   &kp AMPS    &kp STAR    &kp LPAR    &kp RPAR    &none       &none       &none       &none       &none       &none
+                &none       &kp COLON   &kp MINUS   &kp PLUS    &kp LBRC    &kp RBRC    &none       &kp RSHFT   &kp RCTRL   &kp RALT    &kp RGUI    &none
+                &none       &kp TILDE   &kp UNDER   &kp EQUAL   &kp LBKT    &kp RBKT    &none       &none       &none       &none       &none       &none
+                                                    &kp GRAVE   &kp TILDE   &none       &none       &none       &none
             >;
         };
 
