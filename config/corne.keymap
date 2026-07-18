@@ -138,9 +138,9 @@
         /*
          * RUS LAYER
          * ┌─────┬─────┬─────┬─────┬─────┐       ┌─────┬─────┬─────┬─────┬─────┐
-         * │     │     │     │     │     │       │  ~  │  "  │  [  │  ]  │  |  │ 
+         * │     │     │     │     │     │       │  ~  │  "  │  {  │  }  │  |  │ 
          * ├─────┼─────┼─────┼─────┼─────┤       ├─────┼─────┼─────┼─────┼─────┤
-         * │ GUI │ ALT │CTRL │SHFT │     │       │  `  │  '  │  {  │  }  │  \  │
+         * │ GUI │ ALT │CTRL │SHFT │     │       │  `  │  '  │  [  │  ]  │  \  │
          * ├─────┼─────┼─────┼─────┼─────┤       ├─────┼─────┼─────┼─────┼─────┤
          * │     │     │     │     │     │       │     │  <  │  >  │     │     │
          * └─────┴─────┴──┬──┴──┬──┴──┬──┴──┐ ┌──┴──┬──┴──┬──┴──┬──┴─────┴─────┘
@@ -150,8 +150,8 @@
         rus_layer {
             display-name = "RUS";
             bindings = <
-                &none       &none       &none       &none       &none       &none       &kp TILDE   &kp DQT     &kp LBKT    &kp RBKT    &kp PIPE    &none
-                &none       &kp LGUI    &kp LALT    &kp LCTRL   &kp LSHFT   &none       &kp GRAVE   &kp SQT     &kp LBRC    &kp RBRC    &kp BSLH    &none
+                &none       &none       &none       &none       &none       &none       &kp TILDE   &kp DQT     &kp LBRC    &kp RBRC    &kp PIPE    &none
+                &none       &kp LGUI    &kp LALT    &kp LCTRL   &kp LSHFT   &none       &kp GRAVE   &kp SQT     &kp LBKT    &kp RBKT    &kp BSLH    &none
                 &none       &none       &none       &none       &none       &none       &none       &kp LT      &kp GT      &none       &none       &none
                                                     &none       &none       &none       &none       &none       &none
             >;
