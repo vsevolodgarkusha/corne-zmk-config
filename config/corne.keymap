@@ -219,7 +219,7 @@
             bindings = <
                 &none       &kp CARET   &kp AMPS    &kp STAR    &kp LPAR    &kp RPAR    &none       &none       &none       &none       &none       &none
                 &none       &kp COLON   &kp MINUS   &kp PLUS    &kp LBRC    &kp RBRC    &none       &kp RSHFT   &kp RCTRL   &kp RALT    &kp RGUI    &none
-                &none       &kp TILDE   &kp UNDER   &kp EQUAL   &kp LBKT    &kp RBKT    &none       &none       &none       &none       &none       &none
+                &none       &kp SEMI    &kp UNDER   &kp EQUAL   &kp LBKT    &kp RBKT    &none       &none       &none       &none       &none       &none
                                                     &kp GRAVE   &kp TILDE   &none       &none       &none       &none
             >;
         };
