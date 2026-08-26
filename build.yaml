@@ -1,6 +1,6 @@
 ---
 include:
   - board: nice_nano//zmk
-    shield: corne_left
+    shield: cygnus_left
   - board: nice_nano//zmk
-    shield: corne_right
+    shield: settings_reset

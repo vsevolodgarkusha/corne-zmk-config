@@ -7,7 +7,7 @@ KEYMAP_DRAWER := uvx --from keymap-drawer==$(KEYMAP_DRAWER_VERSION) keymap
 .PHONY: draw
 
 draw:
-	$(KEYMAP_DRAWER) -c keymap-drawer/config.yaml parse -z config/corne.keymap \
+	$(KEYMAP_DRAWER) -c keymap-drawer/config.yaml parse -z config/cygnus.keymap \
 	  | keymap-drawer/strip-outer-cols.py \
 	  | $(KEYMAP_DRAWER) -c keymap-drawer/config.yaml draw - \
 	  > keymap-drawer/corne.svg
