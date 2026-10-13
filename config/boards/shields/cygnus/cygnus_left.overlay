@@ -41,10 +41,10 @@ kscan0: kscan {
 
     /* inputs */
     col-gpios
-        = <&gpio1 10 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+        = <&gpio0 10 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
         , <&gpio1 11 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
         , <&gpio1 13 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
-        , <&gpio0 15 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+        , <&gpio1 15 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
         , <&gpio0  2 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
         ;
 };
